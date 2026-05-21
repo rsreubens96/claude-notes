@@ -1,0 +1,23 @@
+{
+  "plansDirectory": "./plans/current",
+  "permissions": {
+    "allow": [
+      "Read(/**)",
+      "Write(/**)",
+      "Edit(/**)",
+      "Bash(echo*)",
+      "Bash(git*)",
+      "Bash(gh*)",
+      "Bash(ls*)",
+      "Bash(find*)",
+      "Bash(for*)",
+      "Bash(cat*)",
+      "Bash(tail*)",
+      "Bash(head*)",
+      "Bash(grep*)",
+      "Bash(mkdir*)",
+      "mcp__confluence__*",
+      "mcp__jira__*"
+    ]
+  }
+}

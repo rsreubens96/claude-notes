@@ -1,0 +1,45 @@
+{
+  "skill_name": "update-launchpad",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "We just copied launchpad last week for our team. Can you pull in the latest upstream changes? We haven't set up any upstream remote yet.",
+      "expected_output": "The skill should detect no upstream remote, ask the user for the upstream URL, add it, fetch latest, show what changed, protect teams/*.yml and CLAUDE.md, and merge cleanly.",
+      "files": [],
+      "assertions": [
+        {"name": "checks_clean_working_tree", "description": "Runs git status --porcelain to verify clean working tree before proceeding"},
+        {"name": "checks_upstream_remote", "description": "Checks if upstream remote exists and adds it if not"},
+        {"name": "fetches_upstream", "description": "Runs git fetch upstream main"},
+        {"name": "shows_changes_before_merge", "description": "Shows git log and/or diff stat of incoming changes before merging"},
+        {"name": "asks_confirmation_before_merge", "description": "Uses AskUserQuestion to confirm before proceeding with the merge"},
+        {"name": "uses_file_copy_strategy", "description": "Uses git checkout upstream/main -- <file> rather than git merge"},
+        {"name": "protects_team_files", "description": "Preserves teams/*.yml and CLAUDE.md during sync"}
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "Is my launchpad up to date with the main repo?",
+      "expected_output": "The skill should check upstream, fetch latest, and report that the repo is already up to date (or show what's new if not).",
+      "files": [],
+      "assertions": [
+        {"name": "checks_upstream_remote", "description": "Checks if upstream remote exists"},
+        {"name": "fetches_upstream", "description": "Runs git fetch upstream main to get latest state"},
+        {"name": "compares_commits", "description": "Runs git log HEAD..upstream/main or similar to check for new commits"},
+        {"name": "reports_status", "description": "Tells the user whether they are up to date or what changes are available"}
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Sync with upstream — I've been modifying some of the skill files locally and I know there might be conflicts with upstream changes.",
+      "expected_output": "The skill should handle the sync, auto-preserve protected files (teams/*.yml, CLAUDE.md) by keeping local versions, and interactively resolve any remaining conflicts in non-protected files.",
+      "files": [],
+      "assertions": [
+        {"name": "checks_clean_working_tree", "description": "Verifies working tree is clean before proceeding"},
+        {"name": "identifies_protected_files", "description": "Identifies teams/*.yml and CLAUDE.md as protected files before syncing"},
+        {"name": "uses_file_copy_strategy", "description": "Uses git checkout upstream/main -- <file> rather than git merge"},
+        {"name": "auto_preserves_protected_files", "description": "Skips protected files entirely rather than overwriting them"},
+        {"name": "interactive_review_for_reviewable_files", "description": "For reviewable files (CLAUDE.md), shows diff and offers resolution options via AskUserQuestion"}
+      ]
+    }
+  ]
+}

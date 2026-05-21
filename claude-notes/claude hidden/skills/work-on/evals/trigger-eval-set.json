@@ -1,0 +1,22 @@
+[
+  {"query": "work on your-org/payments-api — there's a bug in the token refresh logic where it doesn't retry on 503s from the auth provider, customers are getting logged out randomly", "should_trigger": true},
+  {"query": "i need to make a PR for your-org/fraud-detection to update the scoring threshold, the risk team asked us to bump it from 0.7 to 0.85 in the config", "should_trigger": true},
+  {"query": "can you fix the flaky test in your-org/shared-utils? it's the one in test_prompt_builder.py that fails intermittently on CI, something about a race condition with the mock server", "should_trigger": true},
+  {"query": "let me work on the payments service, I think it's under your-org/payments-core. we need to add a new webhook endpoint for stripe connect payouts", "should_trigger": true},
+  {"query": "change in repo your-org/api-gateway — need to add a new routing rule for the /api/v3/ prefix to point at the new cluster", "should_trigger": true},
+  {"query": "/work-on your-org/infra-config", "should_trigger": true},
+  {"query": "we've got a bug report from QA about the checkout flow breaking when users have expired promo codes. the code is in your-org/checkout-api, can you take a look and fix it?", "should_trigger": true},
+  {"query": "I want to refactor the error handling in our API — it's in your-org/core-api. right now every handler has its own try/catch and they're all slightly different", "should_trigger": true},
+  {"query": "make a PR to add rate limiting to the auth service, the repo is your-org/auth-service I think, or maybe it's in shared-libs, not sure", "should_trigger": true},
+  {"query": "work on something in our repos — we need to add prometheus metrics to one of our services but I'm not sure which repo it should go in", "should_trigger": true},
+  {"query": "can you search our Jira project for any open bugs related to authentication?", "should_trigger": false},
+  {"query": "find out what services the platform team owns and what their dependencies are", "should_trigger": false},
+  {"query": "onboard the new platform-infra team — their confluence space is PLATINFRA, jira project is PLAT", "should_trigger": false},
+  {"query": "map the dependencies for our fraud-detection service, I want to know what calls it and what it calls", "should_trigger": false},
+  {"query": "can you read the plan file in plans/current/auth-migration-plan.md and summarize what's left to do?", "should_trigger": false},
+  {"query": "check the recent PRs on your-org/payments-api and tell me if any of them touch the authentication module", "should_trigger": false},
+  {"query": "I need to update our team config in teams/payments.yml to add a new repo we just created", "should_trigger": false},
+  {"query": "look up the traces for the checkout-api service from the last 24 hours, filter for errors with status >= 500", "should_trigger": false},
+  {"query": "what's in our CLAUDE.md? I want to check the conventions before I start working", "should_trigger": false},
+  {"query": "create a new Jira story for adding retry logic to the HTTP clients, put it in the current sprint", "should_trigger": false}
+]
