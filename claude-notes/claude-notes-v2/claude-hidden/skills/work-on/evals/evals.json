@@ -1,0 +1,46 @@
+{
+  "skill_name": "work-on",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "work on your-org/payments-api — I need to fix the validation logic for transaction limits",
+      "expected_output": "Clones the repo to workspaces/payments-api, creates a fix/ branch, explores the codebase (reads CLAUDE.md, README, build files), and reports relevant files for the validation logic change.",
+      "files": [],
+      "assertions": [
+        {"name": "repo-cloned", "description": "workspaces/payments-api was cloned as a git repo"},
+        {"name": "branch-created", "description": "A fix/* branch was created"},
+        {"name": "claude-md-read", "description": "The agent read the target repo's CLAUDE.md if it exists"},
+        {"name": "readme-read", "description": "The agent read the target repo's README.md"},
+        {"name": "build-files-read", "description": "The agent checked for build/test setup files (package.json, Makefile, pyproject.toml, etc.)"},
+        {"name": "relevant-files-found", "description": "The agent identified files related to validation logic or transaction limits"},
+        {"name": "no-repo-question", "description": "The agent did NOT ask which repo to use (it was provided in the prompt)"}
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "work on your-org/payments-api",
+      "expected_output": "Clones the repo, asks the user what change they want to make and what type (bug fix/feature/improvement), creates the appropriate branch, explores the codebase, and reports findings.",
+      "files": [],
+      "assertions": [
+        {"name": "repo-cloned", "description": "workspaces/payments-api was cloned as a git repo"},
+        {"name": "asked-for-description", "description": "The agent asked the user what change to make"},
+        {"name": "asked-for-change-type", "description": "The agent asked for bug fix vs feature vs improvement"},
+        {"name": "branch-matches-type", "description": "Branch name matches the selected change type"},
+        {"name": "codebase-explored", "description": "The agent read README, build files, and relevant source files"}
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "work on your-org/payments-api — add retry logic to the HTTP client",
+      "expected_output": "Detects the existing workspace with uncommitted changes, warns the user and presents options, then proceeds based on user choice.",
+      "files": [],
+      "assertions": [
+        {"name": "dirty-state-detected", "description": "The agent ran git status and detected uncommitted changes"},
+        {"name": "warned-user", "description": "The agent warned about the uncommitted changes"},
+        {"name": "offered-options", "description": "The agent presented options for handling the dirty workspace"},
+        {"name": "branch-created", "description": "A feature/* or improve/* branch was created"},
+        {"name": "http-files-explored", "description": "The agent explored HTTP client-related files in the repo"}
+      ]
+    }
+  ]
+}

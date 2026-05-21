@@ -1,0 +1,22 @@
+[
+  {"query": "work on your-org/payments-api — there's a bug in the token refresh logic", "should_trigger": true},
+  {"query": "i need to make a PR for your-org/fraud-detection to update the scoring threshold", "should_trigger": true},
+  {"query": "can you fix the flaky test in your-org/shared-utils?", "should_trigger": true},
+  {"query": "let me work on the payments service, I think it's under your-org/payments-core", "should_trigger": true},
+  {"query": "change in repo your-org/api-gateway — need to add a new routing rule", "should_trigger": true},
+  {"query": "/work-on your-org/infra-config", "should_trigger": true},
+  {"query": "we've got a bug report from QA about the checkout flow. the code is in your-org/checkout-api", "should_trigger": true},
+  {"query": "I want to refactor the error handling in our API — it's in your-org/core-api", "should_trigger": true},
+  {"query": "make a PR to add rate limiting to the auth service", "should_trigger": true},
+  {"query": "work on something in our repos — we need to add prometheus metrics to one of our services", "should_trigger": true},
+  {"query": "can you search our Jira project for any open bugs related to authentication?", "should_trigger": false},
+  {"query": "find out what services the platform team owns and what their dependencies are", "should_trigger": false},
+  {"query": "onboard the new platform-infra team", "should_trigger": false},
+  {"query": "map the dependencies for our fraud-detection service", "should_trigger": false},
+  {"query": "can you read the plan file in plans/current/auth-migration-plan.md and summarize what's left to do?", "should_trigger": false},
+  {"query": "I need to update our team config in teams/payments.yml", "should_trigger": false},
+  {"query": "look up the traces for the checkout-api service from the last 24 hours", "should_trigger": false},
+  {"query": "what's in our CLAUDE.md?", "should_trigger": false},
+  {"query": "create a new Jira story for adding retry logic to the HTTP clients", "should_trigger": false},
+  {"query": "check the recent PRs on your-org/payments-api and tell me if any touch the auth module", "should_trigger": false}
+]

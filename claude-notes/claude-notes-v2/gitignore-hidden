@@ -1,0 +1,8 @@
+.DS_Store
+
+# Workspace repos (local clones of external repos, never committed)
+workspaces/
+
+# Skill eval run output (grading, timing, summaries, benchmarks)
+.claude/skills/*/evals/iteration-*/
+.claude/skills/*/evals/optimization-log.txt
