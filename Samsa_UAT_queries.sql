@@ -1,0 +1,1 @@
+SELECT * FROM AutoQuotationEvent where AggregateId='adc575a5-8c9f-4989-bfcc-5f658ef033f0'
